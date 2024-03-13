@@ -1,0 +1,7 @@
+<!-- Attribute Directives: [class.name]="condition" -->
+
+<div class="user-card" [class.admin]="user.admin">
+    <h4>User Card</h4>
+    <p>Name: {{user.name}}</p>
+    <p>Admin: {{user.admin ? "Yes" : "No"}}</p>
+</div>
