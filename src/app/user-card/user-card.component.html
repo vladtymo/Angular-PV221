@@ -1,7 +1,13 @@
 <!-- Attribute Directives: [class.name]="condition" -->
 
-<div class="user-card" [class.admin]="user.admin">
+<!-- Pipes: uppercase lowercase date percent decimal currency -->
+
+<!-- Event Binding: (event)="handler(params)" -->
+
+<div class="user-card" [class.admin]="user.admin" (click)="changeRole()">
     <h4>User Card</h4>
-    <p>Name: {{user.name}}</p>
+    <p>Name: {{user.name | upperFirst}}</p>
+    <p>Email: {{user.email | lowercase}}</p>
+    <p>Birth: {{(user.birthdate | date:'longDate') ?? "no data"}}</p>
     <p>Admin: {{user.admin ? "Yes" : "No"}}</p>
 </div>

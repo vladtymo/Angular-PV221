@@ -1,14 +1,16 @@
-<h1>Hello Angular!</h1>
+<div class="container">
+  <h1>Hello Angular!</h1>
 
-<!-- Bindings:
-  - One-way: {{variable}}
--->
+  <!-- Bindings:
+    - One-way: {{variable}}
+  -->
 
-<p>This is: <strong>{{title}}</strong></p>
-<div>
-  <button (click)="changeTitle()">Change Title</button>
+  <p>This is: <strong>{{title}}</strong></p>
+  <div>
+    <button (click)="changeTitle()">Change Title</button>
+  </div>
+
+  @for (i of users; track i.id) {
+  <app-user-card [user]="i"></app-user-card>
+  }
 </div>
-
-@for (i of users; track i.id) {
-<app-user-card [user]="i"></app-user-card>
-}

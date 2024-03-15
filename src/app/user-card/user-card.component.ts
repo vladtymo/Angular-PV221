@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { IUser } from '../user';
+import { DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
+import { UpperFirstPipe } from "../upper-first.pipe";
 
 @Component({
   selector: 'app-user-card',
   standalone: true,
-  imports: [],
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.css'
+  styleUrl: './user-card.component.css',
+  imports: [LowerCasePipe, UpperCasePipe, DatePipe, UpperFirstPipe]
 })
 export class UserCardComponent {
-
   @Input()
   user: IUser = {
     id: 0,
@@ -17,4 +18,9 @@ export class UserCardComponent {
     name: "",
     admin: false
   };
+
+  changeRole(): void {
+    this.user.admin = !this.user.admin;
+  }
+
 }
