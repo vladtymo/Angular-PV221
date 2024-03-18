@@ -10,13 +10,15 @@
     <button (click)="changeTitle()">Change Title</button>
   </div>
 
-  @for (i of users; track i.id) {
-  <app-user-card (removeEvent)="removeUser($event)" [user]="i"></app-user-card>
-  }
-
   @if(users.length == 0) {
   <img height="300" src="https://cdn.dribbble.com/users/860366/screenshots/6364054/desolazione_empty_1.gif" alt="">
   }
-
+  @else {
+  @for (i of users; track i.id) {
+  <app-user-card (removeEvent)="removeUser($event)" [user]="i"></app-user-card>
+  }
   <p>* Double click to delete user item.</p>
+  }
+
+  <app-add-user (submitEvent)="createUser($event)"></app-add-user>
 </div>
