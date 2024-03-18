@@ -4,10 +4,13 @@
 
 <!-- Event Binding: (event)="handler(params)" -->
 
-<div class="user-card" [class.admin]="user.admin" (click)="changeRole()">
+<div class="user-card" [class.admin]="user.admin" (dblclick)="remove()">
     <h4>User Card</h4>
     <p>Name: {{user.name | upperFirst}}</p>
     <p>Email: {{user.email | lowercase}}</p>
     <p>Birth: {{(user.birthdate | date:'longDate') ?? "no data"}}</p>
-    <p>Admin: {{user.admin ? "Yes" : "No"}}</p>
+    <p>
+        <span>Admin: {{user.admin ? "Yes" : "No"}}</span>
+        <button (click)="changeRole()">Change</button>
+    </p>
 </div>

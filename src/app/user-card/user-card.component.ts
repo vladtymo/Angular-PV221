@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUser } from '../user';
 import { DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { UpperFirstPipe } from "../upper-first.pipe";
@@ -11,16 +11,20 @@ import { UpperFirstPipe } from "../upper-first.pipe";
   imports: [LowerCasePipe, UpperCasePipe, DatePipe, UpperFirstPipe]
 })
 export class UserCardComponent {
-  @Input()
-  user: IUser = {
+  @Input() user: IUser = {
     id: 0,
     email: "",
     name: "",
     admin: false
   };
 
+  @Output() removeEvent = new EventEmitter<number>();
+
   changeRole(): void {
     this.user.admin = !this.user.admin;
   }
 
+  remove(): void {
+    this.removeEvent.emit(this.user.id);
+  }
 }

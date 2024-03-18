@@ -11,6 +11,12 @@
   </div>
 
   @for (i of users; track i.id) {
-  <app-user-card [user]="i"></app-user-card>
+  <app-user-card (removeEvent)="removeUser($event)" [user]="i"></app-user-card>
   }
+
+  @if(users.length == 0) {
+  <img height="300" src="https://cdn.dribbble.com/users/860366/screenshots/6364054/desolazione_empty_1.gif" alt="">
+  }
+
+  <p>* Double click to delete user item.</p>
 </div>
